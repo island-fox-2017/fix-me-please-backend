@@ -15,9 +15,8 @@ module.exports = {
     transaction.save(function (err, result) {
       if (err) {
         res.send({err: err})
-      } else {
-        res.send(result)
       }
+      //menghilangkan else
       res.send(result)
     });
   },
