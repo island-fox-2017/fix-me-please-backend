@@ -1,3 +1,5 @@
+const Book = require('../models/Book') // tambah const Book
+
 module.exports = {
   all: function(req, res) {
     Book.find(function (err, books) {
