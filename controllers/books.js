@@ -18,14 +18,19 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Book.update({ _id: req.id }, {
-      $set: req.body
-    }, function(err, result) {
-      if (err) {
-        res.send({err: err})
+    Book.update({
+      _id: req.params.id
+    }, {
+      $set: {
+        title: req.body.title,
+        author: req.body.author,
+        stock: req.body.stock
       }
+    }, (err,result) => {
+      if(err) res.send(err)
       res.send(result)
-    });
+    })
+
   },
   delete: function(req, res) {
     Book.remove({ _id: req.id }, function (err, result) {
