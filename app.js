@@ -7,8 +7,8 @@ mongoose.connect('mongodb://localhost/api-crud-mongoose', (err) => {
   err ? console.log('Can\'t connect to database') : console.log('Database connected')
 });
 
-var books = require('./routes/books'); //fix
-var transactions = require('routes/transactions');
+var books = require('./routes/books'); //fix routes
+var transactions = require('./routes/transactions'); //fix routes
 
 app.use('/books', books);
 app.use('/transactions', transactions);
