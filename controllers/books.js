@@ -1,8 +1,8 @@
-const book = require('../models/Book')
+const Book = require('../models/Book')
 
 module.exports = {
   all: function(req, res) {
-    book.find(function (err, books) {
+    Book.find(function (err, books) {
       if (err) {
         res.send({err: err})
       }
@@ -10,8 +10,15 @@ module.exports = {
     })
   },
   create: function(req, res) {
-    var book = new Book(req.body);
-    book.save(function (err, result) {
+    //new Book(req.body)
+    new Book({
+      isbn: req.body.isbn,
+      title: req.body.title,
+      author: req.body.author,
+      category: req.body.category,
+      stock: req.body.stock
+  })
+    .save(function (err, result) {
       if (err) {
         res.send({err: err})
       }
