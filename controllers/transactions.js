@@ -21,8 +21,10 @@ module.exports = {
         });
     },
     update: function(req, res) {
-        Transaction.update({ _id: req.id }, {
-            $set: req.body
+        Transaction.update({ _id: req.params.id }, {
+            $push: {
+                booklist: req.body.bookid
+            }
         }, function(err, result) {
             if (err) {
                 res.send({ err: err })
@@ -31,7 +33,7 @@ module.exports = {
         });
     },
     delete: function(req, res) {
-        Transaction.remove({ _id: req.id }, function(err, result) {
+        Transaction.remove({ _id: req.params.id }, function(err, result) {
             if (err) {
                 res.send({ err: err })
             }
