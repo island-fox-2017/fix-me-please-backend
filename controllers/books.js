@@ -10,15 +10,17 @@ module.exports = {
     })
   },
   create: function(req, res) {
-    //new Book(req.body)
-    new Book({
-      isbn: req.body.isbn,
-      title: req.body.title,
-      author: req.body.author,
-      category: req.body.category,
-      stock: req.body.stock
-  })
-    .save(function (err, result) {
+    // unchange... still working well
+    var book = new Book(req.body);
+    // new Book(req.body)
+  //   new Book({
+  //     isbn: req.body.isbn,
+  //     title: req.body.title,
+  //     author: req.body.author,
+  //     category: req.body.category,
+  //     stock: req.body.stock
+  // })
+    book.save(function (err, result) {
       if (err) {
         res.send({err: err})
       }
