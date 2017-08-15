@@ -3,10 +3,10 @@ const router = express.Router()
 //typo conroller dirubah menjadi controllers
 var transactionController = require('../controllers/transactions');
 
-router.get('/', transactionsController.all)
-router.post('/', transactionsController.create)
-router.put('/:id', transactionsController.update)
-router.delete('/:id', transactionsController.delete)
+router.get('/', transactionController.all)
+router.post('/', transactionController.create)
+router.put('/:id', transactionController.update)
+router.delete('/:id', transactionController.delete)
 
 //menambahkan module exports
 module.exports = router
