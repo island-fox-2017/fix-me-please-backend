@@ -1,3 +1,6 @@
+const Transaction = require('../models/Transaction');
+const Book = require('../models/Book');
+
 module.exports = {
   all: function(req, res) {
     Transaction.find(function (err, transactions) {
@@ -19,7 +22,8 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Transaction.update({ _id: req.id }, {
+    //menambahkan params
+    Transaction.update({ _id: req.params.id }, {
       $set: req.body
     }, function(err, result) {
       if (err) {
@@ -29,11 +33,14 @@ module.exports = {
     });
   },
   delete: function(req, res) {
-    Transaction.remove({ _id: req.id }, function (err, result) {
+    //menambahkan params
+    Transaction.remove({ _id: req.params.id }, function (err, result) {
       if (err) {
         res.send({err: err})
       }
       res.send(result)
-    }
-  });
+      //menambahkan tanda )
+    });
+    //menghilangkan tanda )
+  }
 }
