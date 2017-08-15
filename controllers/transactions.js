@@ -1,3 +1,4 @@
+const Transaction = require('../models/Transaction')
 module.exports = {
   all: function(req, res) {
     Transaction.find(function (err, transactions) {
@@ -7,7 +8,7 @@ module.exports = {
       res.send(transactions)
     })
   },
-  craete: function(req, res) {
+  create: function(req, res) {
     var transaction = new Transaction(req.body);
     transaction.save(function (err, result) {
       if (err) {
@@ -19,14 +20,20 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Transaction.update({ _id: req.id }, {
-      $set: req.body
-    }, function(err, result) {
-      if (err) {
-        res.send({err: err})
+    Transaction.update({
+      _id: req.params.id
+    },{
+      $set: {
+        member: req.body.member,
+        days: req. body.days,
+        price: req.body.price,
+        booklist: req.body.booklist,
+        date: new Date()
       }
+    }, (err,result) => {
+      if(err) res.send(err)
       res.send(result)
-    });
+    })
   },
   delete: function(req, res) {
     Transaction.remove({ _id: req.id }, function (err, result) {
@@ -34,6 +41,7 @@ module.exports = {
         res.send({err: err})
       }
       res.send(result)
-    }
-  });
+
+    });
+  }
 }
