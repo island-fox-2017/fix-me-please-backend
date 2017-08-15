@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router()
 var transactionController = require('../controllers/transactions');
 
-router.get('/', transactionsController.all)
-router.post('/', transactionsController.create)
-router.put('/:id', transactionsController.update)
-router.delete('/:id', transactionsController.delete)
+router.get('/', transactionController.all) //fix typo transactionController
+router.post('/', transactionController.create) //fix typo
+router.put('/:id', transactionController.update) //fix typo
+router.delete('/:id', transactionController.delete) // fix typo
