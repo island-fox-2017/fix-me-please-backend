@@ -1,4 +1,4 @@
-
+const Transaction = require('../models/Transaction') //add require
 
 module.exports = {
   all: function(req, res) {
