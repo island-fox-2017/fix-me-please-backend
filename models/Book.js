@@ -1,13 +1,16 @@
 var mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
-var bookSchema = mongoose.Schema({
+var bookSchema = new Schema({
   isbn: String,
   title: String,
   author: String,
-  category: Number,
+  //type data category
+  category: String,
   stock: Number
 });
 
-var Book = mongoose.model('Book', booksSchema);
+//typo booksSchema menjadi bookSchema
+var Book = mongoose.model('Book', bookSchema);
 
 module.exports = Book
