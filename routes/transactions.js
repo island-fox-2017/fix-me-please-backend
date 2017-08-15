@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router()
-var transactionController = require('../controllers/transactions'); // controller. kurang 's'
+var transactionsController = require('../controllers/transactions'); // kurang 's' di controller (require) dan transactionsController
 
 router.get('/', transactionsController.all)
 router.post('/', transactionsController.create)

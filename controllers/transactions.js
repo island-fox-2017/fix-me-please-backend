@@ -7,9 +7,9 @@ module.exports = {
       res.send(transactions)
     })
   },
-  craete: function(req, res) {
+  create: function(req, res) { // typo 'create' jadi craete
     var transaction = new Transaction(req.body);
-    transaction.save(function (err, result) {
+    Transaction.save(function (err, result) {  // 't' dari transactions
       if (err) {
         res.send({err: err})
       } else {
