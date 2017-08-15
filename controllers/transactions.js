@@ -1,3 +1,5 @@
+
+
 module.exports = {
   all: function(req, res) {
     Transaction.find(function (err, transactions) {
@@ -7,7 +9,7 @@ module.exports = {
       res.send(transactions)
     })
   },
-  craete: function(req, res) {
+  create: function(req, res) { //fix typo
     var transaction = new Transaction(req.body);
     transaction.save(function (err, result) {
       if (err) {
@@ -34,6 +36,6 @@ module.exports = {
         res.send({err: err})
       }
       res.send(result)
-    }
-  });
+    })
+  }
 }
