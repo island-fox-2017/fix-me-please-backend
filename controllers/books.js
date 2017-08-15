@@ -29,11 +29,11 @@ module.exports = {
         });
     },
     delete: function(req, res) {
-        Book.remove({ _id: req.params.id }, function(err, result) {
+        Book.deleteOne({ _id: req.params.id }, function(err, result) {
             if (err) {
                 res.send({ err: err })
             }
-            res.send(result, 'delete success')
+            res.send(result)
         });
     }
 }
