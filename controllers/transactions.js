@@ -21,7 +21,12 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Transaction.update({ _id: req.id }, {
+    Transaction.find({_id: req.params.id}, (err, docs) => {
+      if (err) {
+        res.send(err.message)
+      }
+    })
+    Transaction.update({ _id: docs[0]._id}, {
       $set: req.body
     }, function(err, result) {
       if (err) {
@@ -31,7 +36,7 @@ module.exports = {
     });
   },
   delete: function(req, res) {
-    Transaction.remove({ _id: req.id }, function (err, result) {
+    Transaction.remove({ _id: req.params.id }, function (err, result) {
       if (err) {
         res.send({err: err})
       }
