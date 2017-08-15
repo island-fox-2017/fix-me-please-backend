@@ -17,7 +17,6 @@ module.exports = {
       } else {
         res.send(result)
       }
-      res.send(result)
     });
   },
   update: function(req, res) {
