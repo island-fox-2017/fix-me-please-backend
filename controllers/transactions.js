@@ -1,3 +1,5 @@
+var Transaction = require('../models/Transaction');
+
 module.exports = {
   all: function(req, res) {
     Transaction.find(function (err, transactions) {
@@ -9,11 +11,11 @@ module.exports = {
   },
   create: function(req, res) {
     var transaction = new Transaction(req.body);
+    // console.log('====================================');
     transaction.save(function (err, result) {
+      console.log(result);
       if (err) {
         res.send({err: err})
-      } else {
-        res.send(result)
       }
       res.send(result)
     });
