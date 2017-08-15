@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router()
-var transactionController = require('../controllers/transactions');
+var transactionsController = require('../controllers/transactions');
 
-router.get('/', transactionController.all) //fix typo transactionController
-router.post('/', transactionController.create) //fix typo
-router.put('/:id', transactionController.update) //fix typo
-router.delete('/:id', transactionController.delete) // fix typo
+router.get('/', transactionsController.all) //fix typo transactionsController
+router.post('/', transactionsController.create) //fix typo
+router.put('/:id', transactionsController.update) //fix typo
+router.delete('/:id', transactionsController.delete) // fix typo
 
 module.exports = router; //fixing Router.use() requires middleware function but got a Object
