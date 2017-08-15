@@ -11,7 +11,7 @@ module.exports = {
   },
   create: function(req, res) { // typo 'create' jadi craete
     var transaction = new Transaction(req.body);
-    Transaction.save(function (err, result) {  // 't' dari transactions
+    transaction.save(function (err, result) {
       if (err) {
         res.send({err: err})
       } else {
@@ -21,8 +21,8 @@ module.exports = {
     });
   },
   update: function(req, res) {
-    Transaction.update({ _id: req.id }, {
-      $set: req.body
+    Transaction.update({ _id: req.params.id }, {
+      $push: req.body  // set diganti push
     }, function(err, result) {
       if (err) {
         res.send({err: err})
@@ -31,7 +31,7 @@ module.exports = {
     });
   },
   delete: function(req, res) {
-    Transaction.remove({ _id: req.id }, function (err, result) {
+    Transaction.remove({ _id: req.params.id }, function (err, result) { // req.body diganti params.id
       if (err) {
         res.send({err: err})
       }
