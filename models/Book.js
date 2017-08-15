@@ -5,7 +5,8 @@ var bookSchema = new Schema({
   isbn: String,
   title: String,
   author: String,
-  category: Number,
+  //type data category
+  category: String,
   stock: Number
 });
 
