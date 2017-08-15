@@ -1,4 +1,4 @@
-const Book = require('../models/Transaction');
+const Transaction = require('../models/Transaction');
 
 module.exports = {
   all: function(req, res) {
